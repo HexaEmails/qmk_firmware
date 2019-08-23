@@ -77,6 +77,7 @@ void matrix_init(void) {
 __attribute__ ((weak))
 void dip_update(uint8_t index, bool active) { }
 
+
 bool last_dip_switch[4] = {0};
 
 uint8_t matrix_scan(void) {

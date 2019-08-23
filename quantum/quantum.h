@@ -137,6 +137,7 @@ extern layer_state_t default_layer_state;
     #include "hd44780.h"
 #endif
 
+
 #ifdef HAPTIC_ENABLE
     #include "haptic.h"
 #endif
