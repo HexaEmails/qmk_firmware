@@ -33,7 +33,7 @@ static uint8_t debouncing = DEBOUNCE;
 static matrix_row_t matrix[MATRIX_ROWS];
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
 
-static bool dip_switch[4] = {0, 0, 0, 0};
+static bool dip_switch[6] = {0, 0, 0, 0, 0, 0};
 
 __attribute__ ((weak))
 void dip_update(uint8_t index, bool active) { }
@@ -41,7 +41,7 @@ void dip_update(uint8_t index, bool active) { }
 __attribute__ ((weak))
 void dip_update_kb(uint8_t index, bool active) { }
 
-bool last_dip_switch[4] = {0};
+bool last_dip_switch[6] = {0};
 
 void matrix_init(void) {
 
@@ -68,7 +68,11 @@ void matrix_init(void) {
     PORTC |= ((1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7));
     PORTA |= ((1 << 3) | (1 << 2) | (1 << 1) | (1 << 0));
     PORTB |= ((1 << 0));
-
+    
+    // encoder click
+    DDRC &= ~((1 << 0) | (1 << 1);
+    PORTC |= ((1 << 0) | (1 << 1);
+    
     // initialize matrix state: all keys off
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
         matrix[row] = 0x00;
@@ -85,7 +89,9 @@ uint8_t matrix_scan(void) {
     dip_switch[1] = !(PIND & (1 << 1));
     dip_switch[2] = !(PIND & (1 << 4));
     dip_switch[3] = !(PIND & (1 << 5));
-    for (uint8_t i = 0; i < 4; i++) {
+    dip_switch[4] = !(PINC & (1 << 0));
+    dip_switch[5] = !(PINC & (1 << 1));
+    for (uint8_t i = 0; i < 6; i++) {
       if (last_dip_switch[i] ^ dip_switch[i]) {
         dip_update(i, dip_switch[i]);
         dip_update_kb(i, dip_switch[i]);
