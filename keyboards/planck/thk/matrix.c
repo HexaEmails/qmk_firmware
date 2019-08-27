@@ -70,8 +70,8 @@ void matrix_init(void) {
     PORTB |= ((1 << 0));
     
     // encoder click
-    DDRC &= ~((1 << 0) | (1 << 1);
-    PORTC |= ((1 << 0) | (1 << 1);
+    DDRC &= ~((1 << 0) | (1 << 1));
+    PORTC |= ((1 << 0) | (1 << 1));
     
     // initialize matrix state: all keys off
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {

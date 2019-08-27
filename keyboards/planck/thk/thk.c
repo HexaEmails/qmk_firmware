@@ -16,7 +16,7 @@
 
 #include "thk.h"
 
-extern bool dip_switch[4];
+extern bool dip_switch[6];
 
 void matrix_init_kb(void) {
 
