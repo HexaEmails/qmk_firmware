@@ -28,9 +28,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define DIODE_DIRECTION COL2ROW
 
 
-#define NUMBER_OF_ENCODERS 2
+//#define NUMBER_OF_ENCODERS 2
 #define ENCODERS_PAD_A { B4, B2 }
 #define ENCODERS_PAD_B { B3, B1 }
+#define ENCODER_RESOLUTION 4
 
 #define TAPPING_TOGGLE 3
 
